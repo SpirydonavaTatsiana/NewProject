@@ -42,29 +42,29 @@ public class PaymentPage {
         driver.switchTo().frame(0); // Переключение на фрейм платежа
     }
 
-    public String getCardNumberPlaceholder() {
-        return driver.findElement(By.className("content.ng-tns-c46-1")).getAttribute("innerText");
-    }
-
-    public String getExpiryDatePlaceholder() {
-        return driver.findElement(By.className("date-input")).getAttribute("innerText");
-    }
-
-    public String getCVCPlaceholder() {
-        WebElement codeCVCInput = driver.findElement(By.name("verification_value"));
-        return codeCVCInput.getAttribute("placeholder");
-    }
-
-    public String getHolderNamePlaceholder() {
-        WebElement holderNameInput = driver.findElement(By.xpath("//label[contains(text(), 'Имя держателя (как на карте)')]"));
-        return holderNameInput.getAttribute("placeholder");
-    }
-
     public String getPaymentAmount() {
         return driver.findElement(By.xpath("//div[contains(text(), '25.00 BYN')]")).getText();
     }
 
     public String getPhoneNumber() {
         return driver.findElement(By.xpath("//span[contains(text(), 'Оплата: Услуги связи Номер:')]")).getText();
+    }
+
+    public String getCardNumberAttribute() {
+        return driver.findElement(By.cssSelector(".ng-tns-c46-1.ng-star-inserted")).getAttribute("innerText");
+    }
+
+    public String getExpiryDateAttribute() {
+       return driver.findElement(By.className("date-input")).getAttribute("innerText");
+    }
+
+    public String getCVCAttribute() {
+        WebElement codeCVCInput = driver.findElement(By.name("verification_value"));
+        return codeCVCInput.getAttribute("placeholder");
+    }
+
+    public String getHolderNameAttribute() {
+        WebElement holderNameInput = driver.findElement(By.xpath("//label[contains(text(), 'Имя держателя (как на карте)')]"));
+        return holderNameInput.getAttribute("placeholder");
     }
 }
