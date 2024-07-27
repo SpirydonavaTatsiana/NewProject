@@ -17,7 +17,7 @@ public class OnlineReplenishmentPage {
     }
 
     public WebElement getOnlineReplenishmentBlock() {
-        return driver.findElement(By.xpath("//div[2]/section/div")); // Подберите более стабильный селектор CSS
+        return driver.findElement(By.xpath("//div[2]/section/div"));
     }
 
     public boolean isLogoPresent(String logo) {
