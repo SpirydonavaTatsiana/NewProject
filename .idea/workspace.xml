@@ -50,9 +50,16 @@
     "kotlin-language-version-configured": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.PrintColor">
+  <component name="RunManager" selected="Application.CompareNumbers">
     <configuration name="CheckSumSign" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="CheckSumSign" />
+      <module name="NewProject" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CompareNumbers" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CompareNumbers" />
       <module name="NewProject" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -74,6 +81,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CompareNumbers" />
         <item itemvalue="Application.PrintColor" />
         <item itemvalue="Application.CheckSumSign" />
         <item itemvalue="Application.PrintThreeWords" />
