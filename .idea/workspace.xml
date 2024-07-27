@@ -46,7 +46,14 @@
     "kotlin-language-version-configured": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.LeapYearChecker">
+  <component name="RunManager" selected="Application.CreateArray">
+    <configuration name="CreateArray" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CreateArray" />
+      <module name="NewProject" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="LeapYearChecker" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="LeapYearChecker" />
       <module name="NewProject" />
@@ -75,20 +82,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SumInRangeChecker" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="SumInRangeChecker" />
-      <module name="NewProject" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CreateArray" />
         <item itemvalue="Application.LeapYearChecker" />
         <item itemvalue="Application.PrinterCountString" />
         <item itemvalue="Application.NumberCheckerNegative" />
         <item itemvalue="Application.NumberChecker" />
-        <item itemvalue="Application.SumInRangeChecker" />
       </list>
     </recent_temporary>
   </component>
