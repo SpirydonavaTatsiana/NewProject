@@ -32,9 +32,9 @@ public class FormPage {
     }
 
     public void selectService(String serviceName) {
-        driver.findElement(By.xpath("//div[2]/button/span[1][contains(text(), '" + serviceName + "')]")).click();
+        driver.findElement(By.className("select__header")).click();
     }
-
+//html/body/div[6]/main/div/div[3]/div[1]/div/div/div[2]/section/div/div[1]/div[1]/div[2]/ul
     public String getAbonentNumberPlaceholder() {
         WebElement abonentNumberInput = driver.findElement(By.id("internet-phone"));
         return abonentNumberInput.getAttribute("placeholder");
