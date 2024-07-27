@@ -4,11 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a07e9a5-b66b-4024-bde8-e94afba3c1b3" name="Changes" comment="1" />
+    <list default="true" id="8a07e9a5-b66b-4024-bde8-e94afba3c1b3" name="Changes" comment="1">
+      <change afterPath="$PROJECT_DIR$/src/main/java/CheckSumSign.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -18,15 +27,15 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/SpirydonavaTatsiana/NewProject.git",
-    "accountId": "7abbbd36-8cc8-453e-8477-6c5f1f0c1d9a"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/SpirydonavaTatsiana/NewProject.git&quot;,
+    &quot;accountId&quot;: &quot;7abbbd36-8cc8-453e-8477-6c5f1f0c1d9a&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2jp8C7ZELiHZ78qbb6Sx3xMxerT" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -35,12 +44,20 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.CheckSumSign.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "Lesson__2",
     "kotlin-language-version-configured": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.CheckSumSign">
+    <configuration name="CheckSumSign" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CheckSumSign" />
+      <module name="NewProject" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PrintThreeWords" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="PrintThreeWords" />
       <module name="NewProject" />
@@ -50,6 +67,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CheckSumSign" />
         <item itemvalue="Application.PrintThreeWords" />
       </list>
     </recent_temporary>
