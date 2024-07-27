@@ -44,7 +44,7 @@
     "kotlin-language-version-configured": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.NumberCheckerNegative">
+  <component name="RunManager" selected="Application.PrinterCountString">
     <configuration name="NumberChecker" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="NumberChecker" />
       <module name="NewProject" />
@@ -59,6 +59,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PrinterCountString" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="PrinterCountString" />
+      <module name="NewProject" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SumInRangeChecker" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="SumInRangeChecker" />
       <module name="NewProject" />
@@ -68,6 +75,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.PrinterCountString" />
         <item itemvalue="Application.NumberCheckerNegative" />
         <item itemvalue="Application.NumberChecker" />
         <item itemvalue="Application.SumInRangeChecker" />
