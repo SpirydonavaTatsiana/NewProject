@@ -5,18 +5,15 @@ import Pages.FormPage;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 
 import java.time.Duration;
-
-import static org.junit.Assert.assertNotNull;
 
 public class FillInFormTest {
     private FormPage formPage;
 
     @Before
     public void setUp() {
-        DriverManager.getDriver(); // Инициализация драйвера
+        DriverManager.getDriver();
         formPage = new FormPage(DriverManager.getDriver());
         DriverManager.getDriver().manage().window().maximize();
         DriverManager.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -33,6 +30,6 @@ public class FillInFormTest {
 
     @After
     public void tearDown() {
-        DriverManager.quitDriver(); // Закрытие драйвера
+        DriverManager.quitDriver();
     }
 }

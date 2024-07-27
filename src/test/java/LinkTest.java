@@ -13,7 +13,7 @@ public class LinkTest {
 
     @Before
     public void setUp() {
-        DriverManager.getDriver(); // Инициализация драйвера
+        DriverManager.getDriver();
         servicePage = new ServicePage(DriverManager.getDriver());
         DriverManager.getDriver().manage().window().maximize();
         DriverManager.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -29,6 +29,6 @@ public class LinkTest {
 
     @After
     public void tearDown() {
-        DriverManager.quitDriver(); // Закрытие драйвера
+        DriverManager.quitDriver();
     }
 }

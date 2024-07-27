@@ -14,7 +14,7 @@ public class LogosTest {
 
     @Before
     public void setUp() {
-        DriverManager.getDriver(); // Инициализация драйвера
+        DriverManager.getDriver();
         onlineReplenishmentPage = new OnlineReplenishmentPage(DriverManager.getDriver());
         onlineReplenishmentPage.navigateToPage();
     }
@@ -29,6 +29,6 @@ public class LogosTest {
 
     @After
     public void tearDown() {
-        DriverManager.quitDriver(); // Закрытие драйвера
+        DriverManager.quitDriver();
     }
 }

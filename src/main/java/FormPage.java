@@ -13,7 +13,7 @@ public class FormPage {
 
     public void navigateToHomePage(String url) {
         driver.get(url);
-        driver.findElement(By.id("cookie-agree")).click(); // Принять куки
+        driver.findElement(By.id("cookie-agree")).click();
     }
 
     public void fillInPhoneNumber(String phoneNumber) {
