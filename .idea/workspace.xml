@@ -44,7 +44,14 @@
     "kotlin-language-version-configured": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.PrinterCountString">
+  <component name="RunManager" selected="Application.LeapYearChecker">
+    <configuration name="LeapYearChecker" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="LeapYearChecker" />
+      <module name="NewProject" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="NumberChecker" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="NumberChecker" />
       <module name="NewProject" />
@@ -75,6 +82,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.LeapYearChecker" />
         <item itemvalue="Application.PrinterCountString" />
         <item itemvalue="Application.NumberCheckerNegative" />
         <item itemvalue="Application.NumberChecker" />
