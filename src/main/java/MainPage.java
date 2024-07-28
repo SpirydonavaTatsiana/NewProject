@@ -21,7 +21,9 @@ public class MainPage {
     public void addItemsToCart(int numberOfItems) {
         List<WebElement> items = driver.findElements(By.cssSelector(".product-card__order-wrap")); // карточка товара
         for (int i = 0; i < numberOfItems; i++) {
-            items.get(i).findElement(By.cssSelector(".product-card__add-basket.j-add-to-basket.btn-main")).click(); // кнопка добавить в корзину
+            items.get(i).findElement(By.cssSelector(".btn-text.selectorgadget_suggested")).click(); // кнопка добавить в корзину
+        if (items.isEmpty()) {
+            throw new AssertionError("Корзина пуста, ожидаются товары.");
             // Добавить задержку может???
         }
     }
