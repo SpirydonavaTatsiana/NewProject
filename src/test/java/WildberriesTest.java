@@ -26,7 +26,7 @@ public class WildberriesTest {
     public void testAddItemsToCart() {
         mainPage.open();
         mainPage.agreeToCookies();
-        mainPage.addItemsToCart(3); // Кладем 3 товара в корзину
+        mainPage.addItemsToCart(2); // Кладем 2 товара в корзину
         mainPage.goToCart();
 
         List<WebElement> items = cartPage.getCartItems();

@@ -16,7 +16,7 @@ public class CartPage {
     }
 
     public double getTotalPrice() {
-        String totalPriceText = driver.findElement(By.cssSelector(".total-price")).getText(); // Измените селектор
-        return Double.parseDouble(totalPriceText.replaceAll("[^\\d.]", ""));
+        String totalPriceText = driver.findElement(By.cssSelector(".total-price")).getText(); // поле с общ стоимостью товаров в корзине, возвращает строку
+        return Double.parseDouble(totalPriceText.replaceAll("[^\\d.]", "")); //парсит в дабл
     }
 }

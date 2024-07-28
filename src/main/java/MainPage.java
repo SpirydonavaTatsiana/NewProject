@@ -10,23 +10,23 @@ public class MainPage {
         this.driver = driver;
     }
 
-    public void agreeToCookies() {
-        driver.findElement(By.id("cookie-agree")).click();
-    }
-
     public void open() {
         driver.get("https://wildberries.ru");
     }
 
+    public void agreeToCookies() {
+        driver.findElement(By.xpath("//div/button[text()='Окей']")).click();
+    }
+
     public void addItemsToCart(int numberOfItems) {
-        List<WebElement> items = driver.findElements(By.cssSelector(".product-card__link.j-card-link.j-open-full-product-card")); // Измените селектор, если необходимо
+        List<WebElement> items = driver.findElements(By.cssSelector(".product-card__order-wrap")); // карточка товара
         for (int i = 0; i < numberOfItems; i++) {
-            items.get(i).findElement(By.cssSelector(".j-add-to-basket")).click(); // Измените селектор кнопки
-            // Добавьте задержку, если необходимо
+            items.get(i).findElement(By.cssSelector(".product-card__add-basket.j-add-to-basket.btn-main")).click(); // кнопка добавить в корзину
+            // Добавить задержку может???
         }
     }
 
     public void goToCart() {
-        driver.findElement(By.cssSelector(".cart-icon")).click(); // Измените селектор значка корзины
+        driver.findElement(By.cssSelector(".navbar-pc__link.j-wba-header-item")).click(); // значок корзины
     }
 }
