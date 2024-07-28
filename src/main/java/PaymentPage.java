@@ -39,7 +39,11 @@ public class PaymentPage {
     }
 
     public void switchToPaymentFrame() {
-        driver.switchTo().frame(0); // Переключение на фрейм платежа
+        driver.switchTo().frame(0);
+    }
+
+    public String getCardNumberAttribute() {
+        return driver.findElement(By.xpath("//div[@class='content ng-tns-c46-1']/label[text()='Номер карты']")).getAttribute("innerText");
     }
 
     public String getPaymentAmount() {
@@ -48,10 +52,6 @@ public class PaymentPage {
 
     public String getPhoneNumber() {
         return driver.findElement(By.xpath("//span[contains(text(), 'Оплата: Услуги связи Номер:')]")).getText();
-    }
-
-    public String getCardNumberAttribute() {
-        return driver.findElement(By.cssSelector(".ng-tns-c46-1.ng-star-inserted")).getAttribute("innerText");
     }
 
     public String getExpiryDateAttribute() {
