@@ -10,6 +10,10 @@ public class MainPage {
         this.driver = driver;
     }
 
+    public void agreeToCookies() {
+        driver.findElement(By.id("cookie-agree")).click();
+    }
+
     public void open() {
         driver.get("https://wildberries.ru");
     }
