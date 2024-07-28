@@ -22,9 +22,8 @@ public class MainPage {
         List<WebElement> items = driver.findElements(By.cssSelector(".product-card__order-wrap")); // карточка товара
         for (int i = 0; i < numberOfItems; i++) {
             items.get(i).findElement(By.cssSelector(".btn-text.selectorgadget_suggested")).click(); // кнопка добавить в корзину
-        if (items.isEmpty()) {
-            throw new AssertionError("Корзина пуста, ожидаются товары.");
-            // Добавить задержку может???
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".cart-item")));
         }
     }
 

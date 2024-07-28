@@ -38,7 +38,7 @@ public class WildberriesTest {
         //- **Получение цены товара**: `itemPriceText` извлекается из соответствующего элемента. Сначала он в формате строки, после чего он очищается от символьных символов, не относящихся к числам.
         //- **Суммирование цен**: `calculatedTotalPrice` обновляется, увеличиваясь на цену текущего товара. Это позволяет в конце проверить, правильно ли были добавлены товары.
         for (WebElement item : items) {
-            //String itemName = item.findElement(By.cssSelector(".item-name")).getText(); // Измените селектор
+            String itemName = item.findElement(By.cssSelector(".item-name")).getText(); // Измените селектор
             String itemPriceText = item.findElement(By.cssSelector(".item-price")).getText(); // Измените селектор
             double itemPrice = Double.parseDouble(itemPriceText.replaceAll("[^\\d.]", ""));
             calculatedTotalPrice += itemPrice;
