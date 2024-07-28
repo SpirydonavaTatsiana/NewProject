@@ -15,9 +15,9 @@ public class MainPage {
     }
 
     public void addItemsToCart(int numberOfItems) {
-        List<WebElement> items = driver.findElements(By.cssSelector(".product-card")); // Измените селектор, если необходимо
+        List<WebElement> items = driver.findElements(By.cssSelector(".product-card__link.j-card-link.j-open-full-product-card")); // Измените селектор, если необходимо
         for (int i = 0; i < numberOfItems; i++) {
-            items.get(i).findElement(By.cssSelector(".add-to-cart-button")).click(); // Измените селектор кнопки
+            items.get(i).findElement(By.cssSelector(".j-add-to-basket")).click(); // Измените селектор кнопки
             // Добавьте задержку, если необходимо
         }
     }
