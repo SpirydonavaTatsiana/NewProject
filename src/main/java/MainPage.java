@@ -20,27 +20,28 @@ public class MainPage {
     }
 
     public void agreeToCookies() {
-        driver.findElement(By.xpath("//div/button[text()='Окей']")).click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div/button[text()='Окей']"))).click();
     }
 
     public void addItemsToCart(int numberOfItems) {
-        List<WebElement> items = driver.findElements(By.cssSelector(".product-card__link.j-card-link.j-open-full-product-card")); // карточка товара
-        for (int i = 0; i < numberOfItems; i++) {
-            items.get(i).findElement(By.cssSelector(".btn-text.selectorgadget_suggested")).click(); // кнопка добавить в корзину
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='product-card__wrapper']")));
 
+        List<WebElement> items = driver.findElements(By.xpath("//div[@class='product-card__wrapper']")); // карточка товара
+        if (items.size() < numberOfItems) {
+            throw new IllegalArgumentException("Недостаточно товаров для добавления в корзину.");
+        }
+
+        for (int i = 0; i < numberOfItems; i++) {
+            // Используем ожидание здесь
+            wait.until(ExpectedConditions.elementToBeClickable(items.get(i).findElement(By.xpath("//a[contains(@class, 'j-add-to-basket']")))).click(); // кнопка добавить в корзину
         }
     }
 
-    //public void addItemsToCart(int numberOfItems) {
-        //List<WebElement> items = driver.findElements(By.cssSelector(".product-card__link.j-card-link.j-open-full-product-card")); // карточка товара
-       // WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        //wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".btn-text.selectorgadget_suggested")));
-        //for (int i = 0; i < numberOfItems; i++) {
-           // items.get(i).findElement(By.cssSelector(".btn-text.selectorgadget_suggested")).click(); // кнопка добавить в корзину
 
-       // }
-   // }
     public void goToCart() {
-        driver.findElement(By.cssSelector(".navbar-pc__link.j-wba-header-item")).click(); // значок корзины
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".navbar-pc__link.j-wba-header-item"))).click(); // значок корзины
     }
 }
