@@ -25,7 +25,7 @@ public class CartPage {
     }
 
     public double getTotalPrice() {
-        String totalPriceText = driver.findElement(By.cssSelector(".b-top__total line")).getText(); // поле с общ стоимостью товаров в корзине, возвращает строку
+        String totalPriceText = driver.findElement(By.xpath("//span[contains(@data-jsv, '802')]")).getText(); // поле с общ стоимостью товаров в корзине, возвращает строку
         return Double.parseDouble(totalPriceText.replaceAll("[^\\d.]", "")); //парсит в дабл
     }
 }

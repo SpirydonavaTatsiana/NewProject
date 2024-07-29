@@ -26,22 +26,21 @@ public class MainPage {
 
     public void addItemsToCart(int numberOfItems) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='product-card__wrapper']")));
+        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//div[@class='product-card__wrapper']")));
 
-        List<WebElement> items = driver.findElements(By.xpath("//div[@class='product-card__wrapper']")); // карточка товара
+        List<WebElement> items = driver.findElements(By.xpath("//div[@class='product-card__wrapper']//a[contains(@class, 'j-open-full-product-card')]")); // карточка товара
         if (items.size() < numberOfItems) {
             throw new IllegalArgumentException("Недостаточно товаров для добавления в корзину.");
         }
-
         for (int i = 0; i < numberOfItems; i++) {
             // Используем ожидание здесь
-            wait.until(ExpectedConditions.elementToBeClickable(items.get(i).findElement(By.xpath("//a[contains(@class, 'j-add-to-basket']")))).click(); // кнопка добавить в корзину
+            wait.until(ExpectedConditions.elementToBeClickable(items.get(i).findElement(By.xpath("//span[text()='Послезавтра']")))).click(); // кнопка добавить в корзину
         }
     }
 
 
     public void goToCart() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".navbar-pc__link.j-wba-header-item"))).click(); // значок корзины
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//2[contains(@class, 'j-wba-header-item')]"))).click(); // значок корзины
     }
 }
