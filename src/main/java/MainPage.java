@@ -45,29 +45,16 @@ public class MainPage {
         // Цикл добавления товаров
         for (int i = 0; i < numberOfItems; i++) {
             // Ожидаем кликабельность кнопки и добавляем товар в корзину
-            WebElement addToCartButton = items.get(i).findElement(By.xpath(".//span[text()='Послезавтра']")); // измените путь к кнопке для конкретного товара
+            WebElement addToCartButton = items.get(i).findElement(By.xpath("//a[contains(@class, 'product-card__add-basket')]")); // измените путь к кнопке для конкретного товара
             wait.until(ExpectedConditions.elementToBeClickable(addToCartButton)).click();
+        }
         try {
             Thread.sleep(500); // Пауза для предотвращения слишком быстрого клика
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
-    public void goToCart() {
+        public void goToCart() {
         driver.findElement(By.xpath("//span[contains(@class, 'navbar-pc__icon--basket')]")).click(); // значок корзины
     }
 }
-
-//public void addItemsToCart(int numberOfItems) {
-//  WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-//wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//div[@class='product-card__wrapper']")));
-
-//  List<WebElement> items = driver.findElements(By.xpath("//div[@class='product-card__wrapper']//a[contains(@class, 'j-open-full-product-card')]")); // карточка товара
-// if (items.size() < numberOfItems) {
-//      throw new IllegalArgumentException("Недостаточно товаров для добавления в корзину.");
-//   }
-//  for (int i = 0; i < numberOfItems; i++) {
-// Используем ожидание здесь
-//     wait.until(ExpectedConditions.elementToBeClickable(items.get(i).findElement(By.xpath("//span[text()='Послезавтра']")))).click(); // кнопка добавить в корзину
-//  }
-// }
