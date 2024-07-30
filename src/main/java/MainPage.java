@@ -24,37 +24,37 @@ public class MainPage {
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div/button[text()='Окей']"))).click();
     }
 
-    public void addItemsToCart() {
-        // Устанавливаем значение numberOfItems равным 3
-        int numberOfItems = 3;
-
-        // Создаем ожидание
+    public void addItemsToCart(int i) {
+        driver.navigate().refresh();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-        // Ожидаем загрузки всех карточек товара
-        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//div[@class='product-card__wrapper']")));
+        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//div[@class='main__container']"))); //product-card__wrapper
 
-        // Получаем список товаров
-        List<WebElement> items = driver.findElements(By.xpath("//div[@class='product-card__wrapper']//a[contains(@class, 'full-product-card')]")); // карточка товара
+        List<WebElement> items = driver.findElements(By.xpath("//a[contains(@class, 'full-product-card')]")); // карточка товара
 
-        // Проверяем, достаточно ли товаров для добавления в корзину
-        if (items.size() < numberOfItems) {
-            throw new IllegalArgumentException("Недостаточно товаров для добавления в корзину.");
-        }
+        int index = 0;
+        int numberOfItems = 3;
+        for (i = 0; i < numberOfItems; i++) {
+            WebElement addToCartButton = items.get(i).findElement(By.xpath("//a[contains(@class, 'product-card__add-basket')]"));
+            addToCartButton.click();
 
-        // Цикл добавления товаров
-        for (int i = 0; i < numberOfItems; i++) {
-            // Ожидаем кликабельность кнопки и добавляем товар в корзину
-            WebElement addToCartButton = items.get(i).findElement(By.xpath("//a[contains(@class, 'product-card__add-basket')]")); // измените путь к кнопке для конкретного товара
-            wait.until(ExpectedConditions.elementToBeClickable(addToCartButton)).click();
-        }
-        try {
-            Thread.sleep(500); // Пауза для предотвращения слишком быстрого клика
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+            try {
+                WebElement popupOverlay = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(@class, 'popup-list-of-sizes')]")));
+                if (popupOverlay.isDisplayed()) {
+                    WebElement sizeButton = popupOverlay.findElement(By.xpath("//label[contains(@class, 'j-quick-order-size-fake')]"));
+                    sizeButton.click();
+                }
+            } catch (org.openqa.selenium.TimeoutException e) {
+            }
+
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
         public void goToCart() {
-        driver.findElement(By.xpath("//span[contains(@class, 'navbar-pc__icon--basket')]")).click(); // значок корзины
+        driver.findElement(By.xpath("//span[contains(@class, 'navbar-pc__icon--basket')]")).click();
     }
 }

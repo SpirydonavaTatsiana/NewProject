@@ -26,24 +26,18 @@ public class WildberriesTest {
     public void testAddItemsToCart() {
         mainPage.open();
         mainPage.agreeToCookies();
-        mainPage.addItemsToCart();
+        mainPage.addItemsToCart(3);
         mainPage.goToCart();
 
-        List<WebElement> items = cartPage.getCartItems();//получает список всех веб-элементов товаров в корзине, использует селекторы, чтобы найти элементы, представляющие добавленные товары
-        double totalPrice = cartPage.getTotalPrice();//получает общую стоимость всех товаров в корзине
-        double calculatedTotalPrice = 0;//Эта переменная будет использоваться для подсчета общей стоимости всех товаров, добавленных в корзину на основе цен каждого из них
+        List<WebElement> items = cartPage.getCartItems();
+        double totalPrice = cartPage.getTotalPrice();
+        double calculatedTotalPrice = 0;
 
-//Цикл для подсчета стоимости товаров
-        //**Получение названия товара**: `itemName` полученный из элемента, представляющего товар, который может выводить название товара. При этом используется селектор `.item-name`, который нужно будет проверить и при необходимости изменить.
-        //- **Получение цены товара**: `itemPriceText` извлекается из соответствующего элемента. Сначала он в формате строки, после чего он очищается от символьных символов, не относящихся к числам.
-        //- **Суммирование цен**: `calculatedTotalPrice` обновляется, увеличиваясь на цену текущего товара. Это позволяет в конце проверить, правильно ли были добавлены товары.
         for (WebElement item : items) {
-            String itemName = item.findElement(By.cssSelector(".item-name")).getText(); // Измените селектор
-            String itemPriceText = item.findElement(By.cssSelector(".item-price")).getText(); // Измените селектор
+            String itemName = item.findElement(By.xpath("//span[@class='good-info__good-name']")).getText();
+            String itemPriceText = item.findElement(By.xpath("//span[contains(@class, 'list-item__price-new')]")).getText();
             double itemPrice = Double.parseDouble(itemPriceText.replaceAll("[^\\d.]", ""));
             calculatedTotalPrice += itemPrice;
-
-            // Добавьте проверки, чтобы убедиться, что название и цена совпадают
         }
 
         assertEquals(calculatedTotalPrice, totalPrice);

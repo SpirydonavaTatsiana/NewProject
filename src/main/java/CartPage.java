@@ -14,11 +14,7 @@ public class CartPage {
     }
 
     public List<WebElement> getCartItems() {
-        return driver.findElements(By.cssSelector(".list-item__wrap")); // Этот вызов обращается к драйверу Selenium (`driver`) и выполняет поиск всех элементов,
-        // соответствующих селектору CSS `.cart-item`.
-        //- Метод `findElements` возвращает список всех найденных элементов на текущей странице, которые содержат класс `cart-item`, который обычно используется
-        // для обозначения товаров в корзине.
-        //- Если на странице не будет найдено ни одного элемента соответствующего критериям, метод вернет пустой список.
+        return driver.findElements(By.xpath("//span[@class='good-info__good-name']"));
         //if (Elements.isEmpty()) {
           //  throw new AssertionError("Корзина пуста, ожидаются товары.");
         //}
