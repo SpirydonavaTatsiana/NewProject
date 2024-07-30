@@ -47,7 +47,7 @@ public class MainPage {
             WebElement sizePopup = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(@class, 'popup-list-of-sizes')]")));
 
             // Если попап появился, выбираем размер (например, первый размер)
-            WebElement sizeOption = sizePopup.findElement(By.xpath("//label[contains(@class, 'j-quick-order-size-fake')][1]"));
+            WebElement sizeOption = sizePopup.findElement(By.xpath("//li[contains(@class, 'sizes-list__item')]"));
             sizeOption.click();
 
             // Подтверждаем выбор размера (если необходимо)
