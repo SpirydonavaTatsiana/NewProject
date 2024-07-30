@@ -14,9 +14,9 @@ public class CartPage {
     }
 
     public List<WebElement> getCartItems() {
-        return driver.findElements(By.xpath("//span[@class='good-info__good-name']"));
+        return driver.findElements(By.cssSelector(".list-item__wrap"));
         //if (Elements.isEmpty()) {
-          //  throw new AssertionError("Корзина пуста, ожидаются товары.");
+        //  throw new AssertionError("Корзина пуста, ожидаются товары.");
         //}
     }
 
