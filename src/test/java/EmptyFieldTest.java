@@ -15,7 +15,7 @@ public class EmptyFieldTest {
 
     @Before
     public void setUp() {
-        DriverManager.getDriver(); // Инициализация драйвера
+        DriverManager.getDriver();
         formPage = new FormPage(DriverManager.getDriver());
         DriverManager.getDriver().manage().window().maximize();
         DriverManager.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -42,6 +42,6 @@ public class EmptyFieldTest {
 
     @After
     public void tearDown() {
-        DriverManager.quitDriver(); // Закрытие драйвера
+        DriverManager.quitDriver();
     }
 }
