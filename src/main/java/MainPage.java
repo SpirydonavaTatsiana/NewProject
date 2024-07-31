@@ -39,7 +39,7 @@ public class MainPage {
         for (i = 0; i < numberOfItems; i++) {
             WebElement addToCartButton;
             addToCartButton = items.get(i).findElement(By.xpath("//a[contains(@class, 'j-add-to-basket')]"));
-            wait.until(ExpectedConditions.elementToBeClickable(addToCartButton)).click();
+            //wait.until(ExpectedConditions.elementToBeClickable(addToCartButton)).click();
             addToCartButton.click();
             //driver.navigate().refresh();
             try {

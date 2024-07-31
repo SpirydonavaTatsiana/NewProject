@@ -14,14 +14,14 @@ public class CartPage {
     }
 
     public List<WebElement> getCartItems() {
-        return driver.findElements(By.cssSelector(".list-item__wrap"));
+        return driver.findElements(By.xpath("//div[contains(@class, 'list-item__wrap')]"));
         //if (Elements.isEmpty()) {
         //  throw new AssertionError("Корзина пуста, ожидаются товары.");
         //}
     }
 
     public double getTotalPrice() {
-        String totalPriceText = driver.findElement(By.xpath("//span[contains(@data-jsv, '802')]")).getText(); // поле с общ стоимостью товаров в корзине, возвращает строку
+        String totalPriceText = driver.findElement(By.xpath("//span[contains(@data-link, 'totalPriceWithCouponPersDiscAndDeliveryPrice')]")).getText(); // поле с общ стоимостью товаров в корзине, возвращает строку
         return Double.parseDouble(totalPriceText.replaceAll("[^\\d.]", "")); //парсит в дабл
     }
 }

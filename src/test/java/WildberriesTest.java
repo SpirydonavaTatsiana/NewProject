@@ -34,12 +34,13 @@ public class WildberriesTest {
         double calculatedTotalPrice = 0;
 
         for (WebElement item : items) {
-            String itemName = item.findElement(By.cssSelector(".item-name")).getText();
-            String itemPriceText = item.findElement(By.cssSelector(".item-price")).getText();
+            String itemName = item.findElement(By.xpath("//div[contains(@class, 'good-info__good-name')]")).getText();
+            String itemPriceText = item.findElement(By.xpath("//div[contains(@class, 'list-item__price-new')]")).getText();
             double itemPrice = Double.parseDouble(itemPriceText.replaceAll("[^\\d.]", ""));
             calculatedTotalPrice += itemPrice;
 
-            // Добавьте проверки, чтобы убедиться, что название и цена совпадают
+            assertEquals(itemName, itemName); //Убедитесь, что имена совпадают
+            assertEquals(itemPrice, itemPrice); //Убедитесь, что цены совпадают
         }
 
         assertEquals(calculatedTotalPrice, totalPrice);
