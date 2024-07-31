@@ -42,22 +42,23 @@ public class MainPage {
             wait.until(ExpectedConditions.elementToBeClickable(addToCartButton)).click();
             addToCartButton.click();
             //driver.navigate().refresh();
+            try {
+                WebElement sizePopup = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(@class, 'popup-list-of-sizes')]")));
+
+                // Если попап появился, выбираем размер (например, первый размер)
+                WebElement sizeOption = sizePopup.findElement(By.xpath("//li[contains(@class, 'sizes-list__item')]"));
+                sizeOption.click();
+
+                // Подтверждаем выбор размера (если необходимо)
+                //WebElement confirmButton = sizePopup.findElement(By.xpath("//button[contains(@class, 'confirm-size')]")); // Измените XPath на правильный для вашего сайта
+                // confirmButton.click();
+
+            } catch (TimeoutException e) {
+                // Если попап не появился, просто продолжаем цикл
+                //System.out.println("Попап не появился для товара " + (i + 1));
+            }
         }
-        try {
-            WebElement sizePopup = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(@class, 'popup-list-of-sizes')]")));
 
-            // Если попап появился, выбираем размер (например, первый размер)
-            WebElement sizeOption = sizePopup.findElement(By.xpath("//li[contains(@class, 'sizes-list__item')]"));
-            sizeOption.click();
-
-            // Подтверждаем выбор размера (если необходимо)
-            //WebElement confirmButton = sizePopup.findElement(By.xpath("//button[contains(@class, 'confirm-size')]")); // Измените XPath на правильный для вашего сайта
-           // confirmButton.click();
-
-        } catch (TimeoutException e) {
-            // Если попап не появился, просто продолжаем цикл
-            //System.out.println("Попап не появился для товара " + (i + 1));
-        }
 
 
         try {
