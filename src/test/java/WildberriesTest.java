@@ -26,7 +26,7 @@ public class WildberriesTest {
     public void testAddItemsToCart() {
         mainPage.open();
         mainPage.agreeToCookies();
-        mainPage.addItemsToCart(6);
+        mainPage.addItemsToCart(4);
         mainPage.goToCart();
 
         List<WebElement> items = cartPage.getCartItems();
@@ -46,8 +46,8 @@ public class WildberriesTest {
         assertEquals(totalPrice, calculatedTotalPrice);
     }
 
-    //@AfterEach
-    //public void tearDown() {
-    //     driver.quit();
-    // }
+    @AfterEach
+    public void tearDown() {
+         driver.quit();
+    }
 }
