@@ -26,7 +26,7 @@ public class WildberriesTest {
     public void testAddItemsToCart() {
         mainPage.open();
         mainPage.agreeToCookies();
-        mainPage.addItemsToCart(3);
+        mainPage.addItemsToCart(6);
         mainPage.goToCart();
 
         List<WebElement> items = cartPage.getCartItems();
@@ -34,16 +34,16 @@ public class WildberriesTest {
         double calculatedTotalPrice = 0;
 
         for (WebElement item : items) {
-            String itemName = item.findElement(By.xpath("//div[contains(@class, 'good-info__good-name')]")).getText();
-            String itemPriceText = item.findElement(By.xpath("//div[contains(@class, 'list-item__price-new')]")).getText();
+            String itemName = item.findElement(By.xpath("//span[contains(@class, 'good-info__good-name')]")).getText();
+            String itemPriceText = item.findElement(By.xpath("//div[contains(@class, 'list-item__price-new')]")).getAttribute("data-jsv");
             double itemPrice = Double.parseDouble(itemPriceText.replaceAll("[^\\d.]", ""));
             calculatedTotalPrice += itemPrice;
 
-            assertEquals(itemName, itemName); //Убедитесь, что имена совпадают
-            assertEquals(itemPrice, itemPrice); //Убедитесь, что цены совпадают
+            assertEquals(itemName, itemName);
+            assertEquals(itemPrice, itemPrice);
         }
 
-        assertEquals(calculatedTotalPrice, totalPrice);
+        assertEquals(totalPrice, calculatedTotalPrice);
     }
 
     //@AfterEach
