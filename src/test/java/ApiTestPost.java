@@ -10,7 +10,7 @@ import static org.hamcrest.Matchers.*;
 public class ApiTestPostRaw {
 
     @Test
-    public void testPostRawRequest() {
+    public void testPostRequest() {
         RestAssured.baseURI = "https://postman-echo.com";
 
         Response response = given()
