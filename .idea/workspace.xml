@@ -45,7 +45,16 @@
     "kotlin-language-version-configured": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.ApiTestPatch">
+  <component name="RunManager" selected="JUnit.ApiTestDelete">
+    <configuration name="ApiTestDelete" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="NewProject" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ApiTestDelete" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ApiTestGet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="NewProject" />
       <option name="PACKAGE_NAME" value="" />
@@ -73,15 +82,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ApiTestPostRaw" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="NewProject" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ApiTestPostRaw" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="ApiTestPut" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="NewProject" />
       <option name="PACKAGE_NAME" value="" />
@@ -93,11 +93,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ApiTestDelete" />
         <item itemvalue="JUnit.ApiTestPatch" />
         <item itemvalue="JUnit.ApiTestPut" />
         <item itemvalue="JUnit.ApiTestGet" />
         <item itemvalue="JUnit.ApiTestPost" />
-        <item itemvalue="JUnit.ApiTestPostRaw" />
       </list>
     </recent_temporary>
   </component>
