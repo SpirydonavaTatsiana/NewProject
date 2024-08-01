@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a07e9a5-b66b-4024-bde8-e94afba3c1b3" name="Changes" comment="post">
-      <change afterPath="$PROJECT_DIR$/src/test/java/ApiTestPut.java" afterDir="false" />
+    <list default="true" id="8a07e9a5-b66b-4024-bde8-e94afba3c1b3" name="Changes" comment="put">
+      <change afterPath="$PROJECT_DIR$/src/test/java/ApiTestPatch.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,19 +35,30 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "JUnit.ApiTestGet.executor": "Run",
+    "JUnit.ApiTestPatch.executor": "Run",
     "JUnit.ApiTestPost.executor": "Run",
     "JUnit.ApiTestPostRaw.executor": "Run",
+    "JUnit.ApiTestPut.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "Lesson__16",
     "kotlin-language-version-configured": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.ApiTestPut">
+  <component name="RunManager" selected="JUnit.ApiTestPatch">
     <configuration name="ApiTestGet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="NewProject" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="ApiTestGet" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApiTestPatch" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="NewProject" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ApiTestPatch" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -82,6 +93,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ApiTestPatch" />
         <item itemvalue="JUnit.ApiTestPut" />
         <item itemvalue="JUnit.ApiTestGet" />
         <item itemvalue="JUnit.ApiTestPost" />
@@ -130,12 +142,21 @@
       <option name="project" value="LOCAL" />
       <updated>1722536845293</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="put">
+      <option name="closed" value="true" />
+      <created>1722537356566</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1722537356566</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="get" />
     <MESSAGE value="post" />
-    <option name="LAST_COMMIT_MESSAGE" value="post" />
+    <MESSAGE value="put" />
+    <option name="LAST_COMMIT_MESSAGE" value="put" />
   </component>
 </project>
