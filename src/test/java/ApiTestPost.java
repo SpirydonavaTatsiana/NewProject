@@ -7,7 +7,7 @@ import java.util.Collections;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
-public class ApiTestPostRaw {
+public class ApiTestPost {
 
     @Test
     public void testPostRequest() {
