@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a07e9a5-b66b-4024-bde8-e94afba3c1b3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ApiTestGet.java" afterDir="false" />
+    <list default="true" id="8a07e9a5-b66b-4024-bde8-e94afba3c1b3" name="Changes" comment="get">
+      <change afterPath="$PROJECT_DIR$/src/test/java/ApiTestPostRaw.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ApiTestGet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ApiTestGet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,13 +36,14 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "JUnit.ApiTestGet.executor": "Run",
+    "JUnit.ApiTestPostRaw.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "Lesson__16",
     "kotlin-language-version-configured": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.ApiTestPostRaw">
     <configuration name="ApiTestGet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="NewProject" />
       <option name="PACKAGE_NAME" value="" />
@@ -53,8 +53,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ApiTestPostRaw" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="NewProject" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ApiTestPostRaw" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ApiTestPostRaw" />
         <item itemvalue="JUnit.ApiTestGet" />
       </list>
     </recent_temporary>
@@ -68,6 +78,19 @@
       <option name="presentableId" value="Default" />
       <updated>1722072527635</updated>
     </task>
+    <task id="LOCAL-00001" summary="get">
+      <option name="closed" value="true" />
+      <created>1722534861495</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1722534861495</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="get" />
+    <option name="LAST_COMMIT_MESSAGE" value="get" />
   </component>
 </project>
