@@ -16,7 +16,7 @@ public class AppiumDriverSingleton {
         if (instance == null) {
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("platformName", "Android");
-            capabilities.setCapability("deviceName", "Emulator"); // Укажите имя вашего устройства
+            capabilities.setCapability("deviceName", "HUAWEY nova 5T"); // Укажите имя вашего устройства
             capabilities.setCapability("appPackage", "com.android.calculator2"); // Пакет калькулятора Google
             capabilities.setCapability("appActivity", ".Calculator"); // Главная активность приложения
             capabilities.setCapability("noReset", true); // Не сбрасывать данные приложения
