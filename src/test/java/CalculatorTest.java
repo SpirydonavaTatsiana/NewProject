@@ -1,53 +1,42 @@
-import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.mobile.MobileElement;
-import org.openqa.selenium.remote.DesiredCapabilities;
+import io.appium.java_client.AppiumDriver;
 
-import java.net.URL;
-import java.util.concurrent.TimeUnit;
+import java.net.MalformedURLException;
 
-public class MobileCalculatorTest {
+public class CalculatorTest {
+    private AppiumDriver<MobileElement> driver;
 
-    private static AppiumDriver<MobileElement> driver;
+    public static void main(String[] args) {
+        CalculatorTest test = new CalculatorTest();
+        try {
+            test.runTests();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            test.tearDown();
+        }
+    }
 
-    public static void main(String[] args) throws Exception {
-        setUp();
+    public void runTests() throws MalformedURLException {
+        driver = AppiumDriverSingleton.getInstance();
 
-        // Тестируем арифметические операции
         testCalculator("2", "3", "+", "5");
         testCalculator("10", "4", "-", "6");
         testCalculator("4", "5", "*", "20");
         testCalculator("20", "4", "/", "5");
-
-        tearDown();
     }
 
-    private static void setUp() throws Exception {
-        // Устанавливаем желаемые возможности для Android
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("platformName", "Android");
-        capabilities.setCapability("deviceName", "Emulator"); // Название устройства
-        capabilities.setCapability("appPackage", "com.android.calculator2"); // Пакет приложения калькулятора
-        capabilities.setCapability("appActivity", ".Calculator"); // Главная активность приложения
-        capabilities.setCapability("noReset", true); // Не сбрасывать данные приложения
-
-        // Инициализируем драйвер
-        driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    }
-
-    private static void testCalculator(String num1, String num2, String operator, String expectedResult) {
-        // Введите первое число
+    private void testCalculator(String num1, String num2, String operator, String expectedResult) {
+        // Вводим первое число
         sendInput(num1);
 
-        // Введите оператор
+        // Вводим оператор
         sendOperator(operator);
 
-        // Введите второе число
+        // Вводим второе число
         sendInput(num2);
 
-        // Нажмите на кнопку равенства
+        // Нажимаем на кнопку равенства
         driver.findElementById("com.android.calculator2:id/equal").click();
 
         // Получаем результат
@@ -61,13 +50,13 @@ public class MobileCalculatorTest {
         }
     }
 
-    private static void sendInput(String number) {
+    private void sendInput(String number) {
         for (char digit : number.toCharArray()) {
             driver.findElementById("com.android.calculator2:id/digit_" + digit).click();
         }
     }
 
-    private static void sendOperator(String operator) {
+    private void sendOperator(String operator) {
         switch (operator) {
             case "+":
                 driver.findElementById("com.android.calculator2:id/op_add").click();
@@ -86,9 +75,7 @@ public class MobileCalculatorTest {
         }
     }
 
-    private static void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
+    public void tearDown() {
+        AppiumDriverSingleton.quitDriver();
     }
 }
