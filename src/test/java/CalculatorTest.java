@@ -1,22 +1,17 @@
-import Utils.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.util.concurrent.TimeUnit;
-
 public class CalculatorTest {
     public static void main(String[] args) {
-        WebDriver driver = WebDriverSingleton.getDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
+        WebDriver driver = WebDriverSingleton.getInstance();
         // Тестируем арифметические операции
         testCalculator(driver, "addition", "2", "3", "5");
         testCalculator(driver, "subtraction", "10", "4", "6");
         testCalculator(driver, "multiplication", "4", "5", "20");
         testCalculator(driver, "division", "20", "4", "5");
 
-        WebDriverSingleton.quitDriver(); // Закрываем браузер
+        driver.quit(); // Закрываем драйвер
     }
 
     static void testCalculator(WebDriver driver, String operation, String num1, String num2, String expectedResult) {
