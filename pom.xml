@@ -60,10 +60,5 @@
             <artifactId>selenium-java</artifactId>
             <version>4.0.0</version>
         </dependency>
-        <dependency>
-            <groupId>io.appium</groupId>
-            <artifactId>appium</artifactId>
-            <version>1.22.0</version> <!-- Или соответствующая версия -->
-        </dependency>
     </dependencies>
 </project>
