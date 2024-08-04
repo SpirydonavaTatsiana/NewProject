@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 public class CalculatorTest {
     public static void main(String[] args) {
-        WebDriver driver = DriverManager.getDriver();
+        WebDriver driver = WebDriverSingleton.getDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         // Тестируем арифметические операции
@@ -16,7 +16,7 @@ public class CalculatorTest {
         testCalculator(driver, "multiplication", "4", "5", "20");
         testCalculator(driver, "division", "20", "4", "5");
 
-        DriverManager.quitDriver(); // Закрываем браузер
+        WebDriverSingleton.quitDriver(); // Закрываем браузер
     }
 
     static void testCalculator(WebDriver driver, String operation, String num1, String num2, String expectedResult) {

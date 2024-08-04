@@ -1,26 +1,20 @@
-package Utils;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class DriverManager {
-    private static WebDriver driver;
+import java.time.Duration;
 
-    private DriverManager() {
-    }
+public class WebDriverSingleton {
+    private static WebDriver instance;
 
-    public static WebDriver getDriver() {
-        if (driver == null) {
+    private WebDriverSingleton() {}
+
+    public static WebDriver getInstance() {
+        if (instance == null) {
             System.setProperty("webdriver.chrome.driver", "C:\\Users\\astonuser\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
-            driver = new ChromeDriver();
+            instance = new ChromeDriver();
+            instance.manage().window().maximize();
+            instance.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         }
-        return driver;
-    }
-
-    public static void quitDriver() {
-        if (driver != null) {
-            driver.quit();
-            driver = null;
-        }
+        return instance;
     }
 }
