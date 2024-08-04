@@ -1,16 +1,13 @@
+import Utils.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
 public class CalculatorTest {
-
     public static void main(String[] args) {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\astonuser\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
-
-        WebDriver driver = new ChromeDriver();
+        WebDriver driver = DriverManager.getDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         // Тестируем арифметические операции
@@ -19,7 +16,7 @@ public class CalculatorTest {
         testCalculator(driver, "multiplication", "4", "5", "20");
         testCalculator(driver, "division", "20", "4", "5");
 
-        driver.quit(); // Закрываем браузер
+        DriverManager.quitDriver(); // Закрываем браузер
     }
 
     static void testCalculator(WebDriver driver, String operation, String num1, String num2, String expectedResult) {
