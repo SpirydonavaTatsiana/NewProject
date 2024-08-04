@@ -27,26 +27,18 @@ public class CalculatorTest {
     }
 
     private void testCalculator(String num1, String num2, String operator, String expectedResult) {
-        // Вводим первое число
         sendInput(num1);
-
-        // Вводим оператор
         sendOperator(operator);
-
-        // Вводим второе число
         sendInput(num2);
-
-        // Нажимаем на кнопку равенства
         driver.findElementById("com.android.calculator2:id/equal").click();
 
-        // Получаем результат
         String result = driver.findElementById("com.android.calculator2:id/result").getText();
 
-        // Проверяем результат
         if (result.equals(expectedResult)) {
             System.out.println("Тест пройден: " + num1 + " " + operator + " " + num2 + " = " + result);
         } else {
-            System.out.println("Тест не пройден: " + num1 + " " + operator + " " + num2 + " ожидалось " + expectedResult + ", получено " + result);
+            System.out.println("Тест не пройден: " + num1 + " " + operator + " " + num2 +
+                    " ожидалось " + expectedResult + ", получено " + result);
         }
     }
 
