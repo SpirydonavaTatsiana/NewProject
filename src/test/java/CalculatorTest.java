@@ -1,73 +1,85 @@
-import io.appium.java_client.MobileElement;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.remote.MobileCapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;
+import java.net.URL;
 
 public class CalculatorTest {
     private AppiumDriver<MobileElement> driver;
 
-    public static void main(String[] args) {
-        CalculatorTest test = new CalculatorTest();
-        try {
-            test.runTests();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            test.tearDown();
-        }
+    public void setUp() throws MalformedURLException {
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "10"); //версия вашего устройства
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Huawei"); // ваше устройство
+        capabilities.setCapability(MobileCapabilityType.APP, "com.android.calculator2"); // пакет калькулятора
+        capabilities.setCapability(MobileCapabilityType.NO_RESET, true);
+
+        driver = new AndroidDriver<>(new URL("http://localhost:4723/wd/hub"), capabilities);
     }
 
-    public void runTests() throws MalformedURLException {
-        driver = AppiumDriverSingleton.getInstance();
-
-        testCalculator("2", "3", "+", "5");
-        testCalculator("10", "4", "-", "6");
-        testCalculator("4", "5", "*", "20");
-        testCalculator("20", "4", "/", "5");
+    public void testAddition() {
+        performCalculation("5", "3", "+", "8");
     }
 
-    private void testCalculator(String num1, String num2, String operator, String expectedResult) {
-        sendInput(num1);
-        sendOperator(operator);
-        sendInput(num2);
-        driver.findElementById("com.android.calculator2:id/equal").click();
+    public void testSubtraction() {
+        performCalculation("10", "4", "-", "6");
+    }
+
+    public void testMultiplication() {
+        performCalculation("7", "6", "*", "42");
+    }
+
+    public void testDivision() {
+        performCalculation("12", "4", "/", "3");
+    }
+
+    private void performCalculation(String num1, String num2, String operator, String expectedResult) {
+        driver.findElementById("com.android.calculator2:id/digit_" + num1).click();
+        driver.findElementById(getOperatorId(operator)).click();
+        driver.findElementById("com.android.calculator2:id/digit_" + num2).click();
+        driver.findElementById("com.android.calculator2:id/op_equals").click();
 
         String result = driver.findElementById("com.android.calculator2:id/result").getText();
-
-        if (result.equals(expectedResult)) {
-            System.out.println("Тест пройден: " + num1 + " " + operator + " " + num2 + " = " + result);
-        } else {
-            System.out.println("Тест не пройден: " + num1 + " " + operator + " " + num2 +
-                    " ожидалось " + expectedResult + ", получено " + result);
-        }
+        assert result.equals(expectedResult) : "Expected " + expectedResult + " but got " + result;
     }
 
-    private void sendInput(String number) {
-        for (char digit : number.toCharArray()) {
-            driver.findElementById("com.android.calculator2:id/digit_" + digit).click();
-        }
-    }
-
-    private void sendOperator(String operator) {
+    private String getOperatorId(String operator) {
         switch (operator) {
             case "+":
-                driver.findElementById("com.android.calculator2:id/op_add").click();
-                break;
+                return "com.android.calculator2:id/op_add";
             case "-":
-                driver.findElementById("com.android.calculator2:id/op_sub").click();
-                break;
+                return "com.android.calculator2:id/op_subtract";
             case "*":
-                driver.findElementById("com.android.calculator2:id/op_mul").click();
-                break;
+                return "com.android.calculator2:id/op_multiply";
             case "/":
-                driver.findElementById("com.android.calculator2:id/op_div").click();
-                break;
+                return "com.android.calculator2:id/op_divide";
             default:
-                throw new UnsupportedOperationException("Оператор не поддерживается");
+                throw new IllegalArgumentException("Operator not supported: " + operator);
         }
     }
 
     public void tearDown() {
-        AppiumDriverSingleton.quitDriver();
+        if (driver != null) {
+            driver.quit();
+        }
+    }
+
+    public static void main(String[] args) {
+        CalculatorTest test = new CalculatorTest();
+        try {
+            test.setUp();
+            test.testAddition();
+            test.testSubtraction();
+            test.testMultiplication();
+            test.testDivision();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } finally {
+            test.tearDown();
+        }
     }
 }
