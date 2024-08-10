@@ -14,8 +14,8 @@ public class CalculatorTest {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
         capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "10"); //версия вашего устройства
-        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Huawei NOVA 5T"); // ваше устройство
-        capabilities.setCapability(MobileCapabilityType.APP, "com.android.calculator2"); // пакет калькулятора
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "HUAWEI nova 5T"); // ваше устройство
+        capabilities.setCapability(MobileCapabilityType.APP, "com.huawei.calculator"); // пакет калькулятора
         capabilities.setCapability(MobileCapabilityType.NO_RESET, true);
 
         driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
@@ -38,25 +38,25 @@ public class CalculatorTest {
     }
 
     private void performCalculation(String num1, String num2, String operator, String expectedResult) {
-        driver.findElementById("com.android.calculator2:id/digit_" + num1).click();
+        driver.findElementById("com.huawei.calculator:id/digit_" + num1).click();
         driver.findElementById(getOperatorId(operator)).click();
-        driver.findElementById("com.android.calculator2:id/digit_" + num2).click();
-        driver.findElementById("com.android.calculator2:id/op_equals").click();
+        driver.findElementById("com.huawei.calculator:id/digit_" + num2).click();
+        driver.findElementById("com.huawei.calculator:id/eq").click();
 
-        String result = driver.findElementById("com.android.calculator2:id/result").getText();
+        String result = driver.findElementById("com.huawei.calculator:id/formula").getText();
         assert result.equals(expectedResult) : "Expected " + expectedResult + " but got " + result;
     }
 
     private String getOperatorId(String operator) {
         switch (operator) {
             case "+":
-                return "com.android.calculator2:id/op_add";
+                return "com.huawei.calculator:id/op_add";
             case "-":
-                return "com.android.calculator2:id/op_subtract";
+                return "com.huawei.calculator:id/op_sub";
             case "*":
-                return "com.android.calculator2:id/op_multiply";
+                return "com.huawei.calculator:id/op_mul";
             case "/":
-                return "com.android.calculator2:id/op_divide";
+                return "com.huawei.calculator:id/op_div";
             default:
                 throw new IllegalArgumentException("Operator not supported: " + operator);
         }
