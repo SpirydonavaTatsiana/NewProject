@@ -16,9 +16,10 @@ public class CalculatorTest {
         capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "10"); //версия вашего устройства
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "HUAWEI nova 5T"); // ваше устройство
         capabilities.setCapability(MobileCapabilityType.APP, "com.huawei.calculator"); // пакет калькулятора
+        capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
         capabilities.setCapability(MobileCapabilityType.NO_RESET, true);
 
-        driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+        driver = new AndroidDriver<>(new URL("http://192.168.0.103:4723/wd/hub"), capabilities);
     }
 
     public void testAddition() {
