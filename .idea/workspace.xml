@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a07e9a5-b66b-4024-bde8-e94afba3c1b3" name="Changes" comment="lesson_17" />
+    <list default="true" id="8a07e9a5-b66b-4024-bde8-e94afba3c1b3" name="Changes" comment="lesson_17">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,7 +50,7 @@
     "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.All in NewProject">
+  <component name="RunManager" selected="Application.CalculatorTest">
     <configuration name="CalculatorTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="CalculatorTest" />
       <module name="NewProject" />
@@ -281,7 +283,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723304881121</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="lesson_17">
+      <option name="closed" value="true" />
+      <created>1723305119029</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1723305119029</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
