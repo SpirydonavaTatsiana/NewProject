@@ -27,17 +27,17 @@ public class CalculatorTest {
         capabilities.setCapability("appPackage", "com.huawei.calculator");
         capabilities.setCapability("appActivity", "com.huawei.calculator.Calculator");
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
-        capabilities.setCapability("noReset", true);
+        capabilities.setCapability("noReset", false);
 
         driver = new AndroidDriver<>(new URL("http://192.168.0.103:4723/wd/hub"), capabilities);
     }
 
     @Test
     public void testAllCalculations() {
-        performCalculation("5", "3", "+", "8");
+        performCalculation("6", "3", "+", "9");
         performCalculation("9", "4", "-", "5");
-        performCalculation("7", "6", "*", "42");
-        performCalculation("8", "4", "/", "2");
+        performCalculation("7", "5", "*", "35");
+        performCalculation("8", "2", "/", "4");
     }
 
     private void performCalculation(String num1, String num2, String operator, String expectedResult) {
