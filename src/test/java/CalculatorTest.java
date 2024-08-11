@@ -17,11 +17,11 @@ public class CalculatorTest {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "HUAWEI nova 5T");
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "10"); // Убедитесь, что версия соответствует вашей
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "10");
         capabilities.setCapability("appPackage", "com.huawei.calculator");
-        capabilities.setCapability("appActivity", "com.huawei.calculator.Calculator"); // Правильное имя активности
+        capabilities.setCapability("appActivity", "com.huawei.calculator.Calculator");
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
-        capabilities.setCapability("noReset", true); // Если не хотите сбрасывать данные приложения
+        capabilities.setCapability("noReset", true);
 
         driver = new AndroidDriver<>(new URL("http://192.168.0.103:4723/wd/hub"), capabilities);
     }
@@ -50,30 +50,13 @@ public class CalculatorTest {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("com.huawei.calculator:id/digit_" + num2))).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("com.huawei.calculator:id/eq"))).click();
 
-        String result = driver.findElementById("com.huawei.calculator:id/formula").getText();// Операции калькулятора
-        //driver.findElementById("com.huawei.calculator:id/digit_" + num1).click();
-        //driver.findElementById(getOperatorId(operator)).click();
-        //driver.findElementById("com.huawei.calculator:id/digit_" + num2).click();
-        //driver.findElementById("com.huawei.calculator:id/eq").click();
+        String result = driver.findElementById("com.huawei.calculator:id/formula").getText();
 
         System.out.println("Calculating: " + num1 + " " + operator + " " + num2);
-
-        //String result = driver.findElementById("com.huawei.calculator:id/formula").getText();
-
         System.out.println("Result: " + result);
 
         assert result.equals(expectedResult) : "Expected " + expectedResult + " but got " + result;
     }
-
-    //private void performCalculation(String num1, String num2, String operator, String expectedResult) {
-        //driver.findElementById("com.huawei.calculator:id/digit_" + num1).click();
-        //driver.findElementById(getOperatorId(operator)).click();
-        //driver.findElementById("com.huawei.calculator:id/digit_" + num2).click();
-        //driver.findElementById("com.huawei.calculator:id/eq").click();
-
-       // String result = driver.findElementById("com.huawei.calculator:id/formula").getText();
-        //assert result.equals(expectedResult) : "Expected " + expectedResult + " but got " + result;
-    //}
 
     private String getOperatorId(String operator) {
         switch (operator) {
