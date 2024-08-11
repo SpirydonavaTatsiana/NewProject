@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a07e9a5-b66b-4024-bde8-e94afba3c1b3" name="Changes" comment="lesson_18">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="8a07e9a5-b66b-4024-bde8-e94afba3c1b3" name="Changes" comment="lesson_18" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -115,14 +113,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1722072527635</updated>
-    </task>
-    <task id="LOCAL-00002" summary="lesson_17">
-      <option name="closed" value="true" />
-      <created>1722780173995</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1722780173995</updated>
     </task>
     <task id="LOCAL-00003" summary="lesson_17">
       <option name="closed" value="true" />
@@ -508,7 +498,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723397795655</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="lesson_18">
+      <option name="closed" value="true" />
+      <created>1723398767936</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1723398767936</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
