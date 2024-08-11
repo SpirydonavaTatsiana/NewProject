@@ -3,7 +3,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
+import org.junit.Assert;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -20,14 +20,6 @@ public class CalculatorTest {
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
         capabilities.setCapability("noReset", true); // Если не хотите сбрасывать данные приложения
 
-        //DesiredCapabilities capabilities = new DesiredCapabilities();
-        //capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-        //capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "10"); //версия вашего устройства
-        //capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "HUAWEI nova 5T"); // ваше устройство
-        //capabilities.setCapability(MobileCapabilityType.APP, "com.huawei.calculator"); // пакет калькулятора
-        //capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
-        //capabilities.setCapability(MobileCapabilityType.NO_RESET, true);
-
         driver = new AndroidDriver<>(new URL("http://192.168.0.103:4723/wd/hub"), capabilities);
     }
 
@@ -36,7 +28,7 @@ public class CalculatorTest {
     }
 
     public void testSubtraction() {
-        performCalculation("10", "4", "-", "6");
+        performCalculation("9", "4", "-", "5");
     }
 
     public void testMultiplication() {
@@ -44,7 +36,20 @@ public class CalculatorTest {
     }
 
     public void testDivision() {
-        performCalculation("12", "4", "/", "3");
+        performCalculation("8", "4", "/", "2");
+    }
+
+    private void performCalculation(String num1, String num2, String operator, String expectedResult) {
+        // Операции калькулятора
+        driver.findElementById("com.huawei.calculator:id/digit_" + num1).click();
+        driver.findElementById(getOperatorId(operator)).click();
+        driver.findElementById("com.huawei.calculator:id/digit_" + num2).click();
+        driver.findElementById("com.huawei.calculator:id/eq").click();
+
+        String result = driver.findElementById("com.huawei.calculator:id/formula").getText();
+
+        // Используйте JUnit для ассертаций
+        Assert.assertEquals("Expected " + expectedResult + " but got " + result, expectedResult, result);
     }
 
     private void performCalculation(String num1, String num2, String operator, String expectedResult) {
