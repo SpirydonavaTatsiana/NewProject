@@ -61,6 +61,13 @@
         </dependency>
     </dependencies>
 
+    <repositories>
+        <repository>
+            <id>allure</id>
+            <url>https://nexus.qameta.io/repository/public/</url>
+        </repository>
+    </repositories>
+
     <build>
         <plugins>
             <plugin>
