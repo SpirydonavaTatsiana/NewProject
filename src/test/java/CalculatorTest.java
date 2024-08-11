@@ -13,11 +13,20 @@ public class CalculatorTest {
     public void setUp() throws MalformedURLException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "10"); //версия вашего устройства
-        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "HUAWEI nova 5T"); // ваше устройство
-        capabilities.setCapability(MobileCapabilityType.APP, "com.huawei.calculator"); // пакет калькулятора
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "HUAWEI nova 5T");
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "10"); // Убедитесь, что версия соответствует вашей
+        capabilities.setCapability(MobileCapabilityType.APP_PACKAGE, "com.huawei.calculator");
+        capabilities.setCapability(MobileCapabilityType.APP_ACTIVITY, "com.huawei.calculator.Calculator"); // Правильное имя активности
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
-        capabilities.setCapability(MobileCapabilityType.NO_RESET, true);
+        capabilities.setCapability("noReset", true); // Если не хотите сбрасывать данные приложения
+
+        //DesiredCapabilities capabilities = new DesiredCapabilities();
+        //capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
+        //capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "10"); //версия вашего устройства
+        //capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "HUAWEI nova 5T"); // ваше устройство
+        //capabilities.setCapability(MobileCapabilityType.APP, "com.huawei.calculator"); // пакет калькулятора
+        //capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
+        //capabilities.setCapability(MobileCapabilityType.NO_RESET, true);
 
         driver = new AndroidDriver<>(new URL("http://192.168.0.103:4723/wd/hub"), capabilities);
     }
