@@ -49,12 +49,6 @@
             <version>2.20.1</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-selenium</artifactId>
-            <version>2.20.1</version>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
 
     <plugins>
@@ -64,6 +58,14 @@
             <version>2.20.1</version>
             <configuration>
                 <reportVersion>2.20.1</reportVersion>
+            </configuration>
+        </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.2.0</version>
+            <configuration>
+                <useModulePath>false</useModulePath>
             </configuration>
         </plugin>
     </plugins>

@@ -2,6 +2,8 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
+import io.qameta.allure.Description;
+import io.qameta.allure.Step;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,12 +29,13 @@ public class CalculatorTest {
         capabilities.setCapability("appPackage", "com.huawei.calculator");
         capabilities.setCapability("appActivity", "com.huawei.calculator.Calculator");
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
-        capabilities.setCapability("noReset", false);
+        capabilities.setCapability(MobileCapabilityType.NO_RESET, false);
 
         driver = new AndroidDriver<>(new URL("http://192.168.0.103:4723/wd/hub"), capabilities);
     }
 
     @Test
+    @Description("This test performs all arithmetic operations and checks the results.")
     public void testAllCalculations() {
         performCalculation("6", "3", "+", "9");
         performCalculation("9", "4", "-", "5");
@@ -40,6 +43,7 @@ public class CalculatorTest {
         performCalculation("8", "2", "/", "4");
     }
 
+    @Step("Performing calculation: {num1} {operator} {num2}")
     private void performCalculation(String num1, String num2, String operator, String expectedResult) {
         WebDriverWait wait = new WebDriverWait(driver, 10);
 
