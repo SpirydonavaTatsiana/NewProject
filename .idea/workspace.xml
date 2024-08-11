@@ -114,22 +114,6 @@
       <option name="presentableId" value="Default" />
       <updated>1722072527635</updated>
     </task>
-    <task id="LOCAL-00003" summary="lesson_17">
-      <option name="closed" value="true" />
-      <created>1722780252454</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1722780252454</updated>
-    </task>
-    <task id="LOCAL-00004" summary="lesson_17">
-      <option name="closed" value="true" />
-      <created>1722780306637</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1722780306637</updated>
-    </task>
     <task id="LOCAL-00005" summary="lesson_17">
       <option name="closed" value="true" />
       <created>1722780915407</created>
@@ -506,7 +490,23 @@
       <option name="project" value="LOCAL" />
       <updated>1723398767936</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="lesson_18">
+      <option name="closed" value="true" />
+      <created>1723398995036</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1723398995037</updated>
+    </task>
+    <task id="LOCAL-00053" summary="lesson_18">
+      <option name="closed" value="true" />
+      <created>1723399076686</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1723399076686</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
