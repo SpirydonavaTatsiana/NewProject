@@ -58,7 +58,7 @@ public class CalculatorTest {
         System.out.println("Calculating: " + num1 + " " + operator + " " + num2);
         System.out.println("Result: " + result);
 
-        assertEquals("Expected " + expectedResult + " but got " + result, expectedResult, result);
+        assertEquals(expectedResult, result, "Expected " + expectedResult + " but got " + result);
     }
 
     private String getOperatorId(String operator) {
