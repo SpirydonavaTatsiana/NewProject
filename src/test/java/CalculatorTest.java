@@ -2,8 +2,11 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
+import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.junit.Assert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -40,27 +43,37 @@ public class CalculatorTest {
     }
 
     private void performCalculation(String num1, String num2, String operator, String expectedResult) {
-        // Операции калькулятора
-        driver.findElementById("com.huawei.calculator:id/digit_" + num1).click();
-        driver.findElementById(getOperatorId(operator)).click();
-        driver.findElementById("com.huawei.calculator:id/digit_" + num2).click();
-        driver.findElementById("com.huawei.calculator:id/eq").click();
+        WebDriverWait wait = new WebDriverWait(driver, 10);
 
-        String result = driver.findElementById("com.huawei.calculator:id/formula").getText();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("com.huawei.calculator:id/digit_" + num1))).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(getOperatorId(operator)))).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("com.huawei.calculator:id/digit_" + num2))).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("com.huawei.calculator:id/eq"))).click();
 
-        // Используйте JUnit для ассертаций
-        Assert.assertEquals("Expected " + expectedResult + " but got " + result, expectedResult, result);
-    }
+        String result = driver.findElementById("com.huawei.calculator:id/formula").getText();// Операции калькулятора
+        //driver.findElementById("com.huawei.calculator:id/digit_" + num1).click();
+        //driver.findElementById(getOperatorId(operator)).click();
+        //driver.findElementById("com.huawei.calculator:id/digit_" + num2).click();
+        //driver.findElementById("com.huawei.calculator:id/eq").click();
 
-    private void performCalculation(String num1, String num2, String operator, String expectedResult) {
-        driver.findElementById("com.huawei.calculator:id/digit_" + num1).click();
-        driver.findElementById(getOperatorId(operator)).click();
-        driver.findElementById("com.huawei.calculator:id/digit_" + num2).click();
-        driver.findElementById("com.huawei.calculator:id/eq").click();
+        System.out.println("Calculating: " + num1 + " " + operator + " " + num2);
 
-        String result = driver.findElementById("com.huawei.calculator:id/formula").getText();
+        //String result = driver.findElementById("com.huawei.calculator:id/formula").getText();
+
+        System.out.println("Result: " + result);
+
         assert result.equals(expectedResult) : "Expected " + expectedResult + " but got " + result;
     }
+
+    //private void performCalculation(String num1, String num2, String operator, String expectedResult) {
+        //driver.findElementById("com.huawei.calculator:id/digit_" + num1).click();
+        //driver.findElementById(getOperatorId(operator)).click();
+        //driver.findElementById("com.huawei.calculator:id/digit_" + num2).click();
+        //driver.findElementById("com.huawei.calculator:id/eq").click();
+
+       // String result = driver.findElementById("com.huawei.calculator:id/formula").getText();
+        //assert result.equals(expectedResult) : "Expected " + expectedResult + " but got " + result;
+    //}
 
     private String getOperatorId(String operator) {
         switch (operator) {
