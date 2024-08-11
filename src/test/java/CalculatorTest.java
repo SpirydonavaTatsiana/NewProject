@@ -15,8 +15,8 @@ public class CalculatorTest {
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "HUAWEI nova 5T");
         capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "10"); // Убедитесь, что версия соответствует вашей
-        capabilities.setCapability(MobileCapabilityType.appPackage, "com.huawei.calculator");
-        capabilities.setCapability(MobileCapabilityType.appActivity, "com.huawei.calculator.Calculator"); // Правильное имя активности
+        capabilities.setCapability("appPackage", "com.huawei.calculator");
+        capabilities.setCapability("appActivity", "com.huawei.calculator.Calculator"); // Правильное имя активности
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
         capabilities.setCapability("noReset", true); // Если не хотите сбрасывать данные приложения
 
